@@ -10,7 +10,7 @@ if (process.argv.length < 3) {
 }
 
 const projectName = process.argv[2];
-const repoUrl = 'your-github-username/my-nextjs-template';
+const repoUrl = 'https://github.com/tranhoangkhang1212/base-next-project';
 
 const emitter = degit(repoUrl, {
     cache: false,
