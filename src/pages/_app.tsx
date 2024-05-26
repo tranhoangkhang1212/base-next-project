@@ -1,4 +1,4 @@
-import Layout from '@/components/layout';
+import RootLayout from '@/components/RootLayout';
 import { RouteNotLayout } from '@/constants/Routes';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
@@ -9,17 +9,17 @@ import React from 'react';
 const App = ({ Component, pageProps }: AppProps) => {
     const { pathname } = useRouter();
 
-    const LayoutComponent = RouteNotLayout.includes(pathname)
-        ? React.Fragment
-        : Layout;
+    const Layout = RouteNotLayout.includes(pathname) ? React.Fragment : RootLayout;
 
     return (
-        <LayoutComponent>
+        <>
             <Head>
                 <title>First Next App</title>
             </Head>
-            <Component {...pageProps} />
-        </LayoutComponent>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </>
     );
 };
 
